@@ -37,6 +37,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 Transition = namedtuple('Transition', ('state', 'action', 'next_state', 'reward'))
 
+# Store the agent's experiences at each time-step
 class ReplayMemory(object):
 
 	def __init__(self, capacity):
@@ -52,7 +53,7 @@ class ReplayMemory(object):
 		self.position = (self.position + 1) % self.capacity
 
 	def sample(self, batch_size):
-		return(random.sample(self.memory, batch_size))
+		return(random.sample(self.memory, batch_size)) #Sample the experience
 
 	def __len__(self):
 		return(len(self.memory))
