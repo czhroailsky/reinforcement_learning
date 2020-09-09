@@ -76,7 +76,7 @@ def equiprobable_random_policy(first):
                     next_i, next_j = state_hat
 
                     # bellman equation
-                    # sum over the actions taken, and update the value of state [i, j]
+                    # sum over the actions, and update the value of state [i, j]
                     new_value[i, j] += ACTION_PROB * (reward + GAMMA * value[next_i, next_j])
 
         n += 1
